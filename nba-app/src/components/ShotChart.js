@@ -11,7 +11,8 @@ export class ShotChart extends React.Component {
   static propTypes = {
     playerId: PropTypes.number,
     minCount: PropTypes.number,
-    chartType: PropTypes.string
+    chartType: PropTypes.string,
+    displayTooltip: PropTypes.bool,
   }
 
   componentDidUpdate() {
@@ -29,7 +30,7 @@ export class ShotChart extends React.Component {
       const courtSelection = d3.select("#shot-chart");
       courtSelection.html('');
       const chart_court = court().width(500);
-      const chart_shots = shots().shotRenderThreshold(this.props.minCount).displayToolTips(true).displayType(this.props.chartType);
+      const chart_shots = shots().shotRenderThreshold(this.props.minCount).displayToolTips(this.props.displayTooltip).displayType(this.props.chartType);
       courtSelection.call(chart_court);
       courtSelection.datum(final_shots).call(chart_shots);
     });
