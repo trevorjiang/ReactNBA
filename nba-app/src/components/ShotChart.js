@@ -35,6 +35,7 @@ export class ShotChart extends React.Component {
       courtSelection.datum(final_shots).call(chart_shots);
     });
   }
+
   render() {
     return (
       <div id="shot-chart"></div>
