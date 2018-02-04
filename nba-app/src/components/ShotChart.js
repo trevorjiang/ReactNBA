@@ -29,6 +29,7 @@ export class ShotChart extends React.Component {
 
       const courtSelection = d3.select("#shot-chart");
       courtSelection.html('');
+      d3.select('.d3-tip').html('');
       const chart_court = court().width(500);
       const chart_shots = shots().shotRenderThreshold(this.props.minCount).displayToolTips(this.props.displayTooltip).displayType(this.props.chartType);
       courtSelection.call(chart_court);
